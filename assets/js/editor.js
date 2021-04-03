@@ -37,12 +37,12 @@ let editorLib = {
         codeEditor.setTheme("ace/theme/dreamweaver");
 
         // Set language
-        codeEditor.session.setMode("ace/mode/javascript");
+        codeEditor.session.setMode("ace/mode/python");
 
         // Set Options
         codeEditor.setOptions({
             fontFamily: 'Inconsolata',
-            fontSize: '12pt',
+            fontSize: '15pt',
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
         });
@@ -56,7 +56,7 @@ let editorLib = {
 executeCodeBtn.addEventListener('click', () => {
     // Clear console messages
     editorLib.clearConsoleScreen();
-    
+
     // Get input from the code editor
     const userCode = codeEditor.getValue();
 
