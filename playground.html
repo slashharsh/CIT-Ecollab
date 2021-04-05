@@ -38,10 +38,8 @@
                     <li class="nav-item"><a class="nav-link" data-bss-hover-animate="bounce" id="home"
                             style="color: var(--bs-white);" href="index.html"><strong>Home </strong></a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" data-bss-hover-animate="bounce" href="#"
-                            style="color: var(--bs-white);"><strong>About </strong></a></li>
-                    <li class="nav-item"><a class="nav-link" data-bss-hover-animate="bounce" href="#"
-                            style="color: var(--bs-white);"><strong>Contact </strong></a></li>
+                    <li class="nav-item"><a class="nav-link" data-bss-hover-animate="bounce" href="about.html"
+                            style="color: var(--bs-white);"><strong>About Us</strong></a></li>
                 </ul>
             </div>
         </div>
@@ -55,17 +53,27 @@
     <p style="text-align: center;font-family: Alata, sans-serif;color: #383838;"><br><strong><em>"Any fool can write
                 code that a computer can understand. Good programmers write code that humans can understand.” – Martin
                 Fowler</em></strong><br><br></p>
-    <!-- <div class="dropdown" style="text-align: center;"><button class="btn btn-primary dropdown-toggle text-center"
-            aria-expanded="false" data-bs-toggle="dropdown" data-bss-hover-animate="rubberBand" type="button">Choose
-            your Language</button>
-        <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center" style="width: 114px;"><a
-                class="dropdown-item" href="page2.html"><strong>Python</strong></a><a class="dropdown-item"
-                href="#"><strong>Java</strong></a><a class="dropdown-item" href="#"><strong>c++</strong></a></div>
 
-            </div> -->
 
     <div class="editor">
+        <div class="dropdown" style="text-align: center; margin-right:56.5%;"><button
+                class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
+                data-bss-hover-animate="glow" type="button">Choose
+                your Language</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
+                style="width: 114px;"><a class="dropdown-item" href="#""><strong>Javascript</strong></a><a><strong>Python</strong></a><a
+                class=" dropdown-item" href="#"><strong>Java</strong></a><a class="dropdown-item"
+                    href="#"><strong>C++</strong></a></div>
 
+            <button class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
+                data-bss-hover-animate="glow" type="button">Choose Theme</button>
+            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
+                style="width: 114px;"><a class="dropdown-item"
+                    href="#"><strong>Dracula</strong></a><a><strong>Dreamweaver</strong></a><a class="dropdown-item"
+                    href="#"><strong>Twilight</strong></a><a class="dropdown-item" href="#"><strong>C++</strong></a>
+            </div>
+        </div>
         <div class="editor__wrapper">
             <div class="editor__body">
                 <div id="editorCode" class="editor__code"></div>
@@ -98,9 +106,12 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
+
     <!-- Required Ace Libraries -->
     <script src="assets/js/ace-editor/src-min/ace.js"></script>
     <script src="assets/js/ace-editor/src-min/mode-javascript.js"></script>
+    <script src="assets/js/ace-editor/src-min/mode-python.js"></script>
+    <script src="assets/js/ace-editor/src-min/mode-c_cpp.js"></script>
     <script src="assets/js/ace-editor/src-min/ext-language_tools.js"></script>
 
     <!-- Custom Scripts -->

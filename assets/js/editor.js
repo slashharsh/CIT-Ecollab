@@ -37,7 +37,7 @@ let editorLib = {
         codeEditor.setTheme("ace/theme/dreamweaver");
 
         // Set language
-        codeEditor.session.setMode("ace/mode/python");
+        codeEditor.session.setMode("ace/mode/c_cpp");
 
         // Set Options
         codeEditor.setOptions({
