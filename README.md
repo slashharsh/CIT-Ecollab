@@ -1,4 +1,4 @@
-# HIRE SMART
+# E-Collab
 
 ## 👨🏻‍💻&nbsp;Introduction
 Built a platform to practice code and find a project based on your skills and interests.
