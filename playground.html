@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="/assets/css/editor-styles.css">
-    <link rel="stylesheet" type="text/css" href="try.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Acme">
@@ -55,28 +54,47 @@
                 Fowler</em></strong><br><br></p>
 
 
-    <div class="editor">
-        <div class="dropdown" style="text-align: center; margin-right:56.5%;">
-            <button class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button">Choose your Language</button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
-                style="width: 114px;">
-                <option class="dropdown-item" value="javascript"><strong>Javascript</strong></option>
-                <option class="dropdown-item" value="python"><strong>Python</strong></option>
-                <option class=" dropdown-item" value="java"><strong>Java</strong></option>
-                <option class="dropdown-item" value="cpp"><strong>C++</strong></option>
-            </div>
 
-            <button class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button">Choose Theme</button>
-            <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
-                style="width: 114px;">
-                <option class="dropdown-item" value="dracula"><strong>Dracula</strong></option>
-                <option class="dropdown-item" value="dreamweaver"><strong>Dreamweaver</strong></option>
-                <option class="dropdown-item" value="twilight"><strong>Twilight</strong></option>
-                <option class="dropdown-item" value="other"><strong>Other</strong></option>
-            </div>
+    <div class="editor">
+        <div class="dropdown" style="text-align: center; margin-right:55%;">
+            <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
+                data-bss-hover-animate="glow" type="button" id="choose_language">
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
+                    style="width: 114px;">
+                    <option class="dropdown-item" value="none"><strong>Choose Language</strong></option>
+                    <option class="dropdown-item" value="javascript"><strong>Javascript</strong></option>
+                    <option class="dropdown-item" value="python"><strong>Python</strong></option>
+                    <option class=" dropdown-item" value="java"><strong>Java</strong></option>
+                    <option class="dropdown-item" value="cpp"><strong>C++</strong></option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
+                data-bss-hover-animate="glow" type="button" id="choose_theme" onchange="editorLib.init()">
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
+                    style="width: 114px;">
+                    <option class="dropdown-item" value="none"><strong>Choose Theme</strong></option>
+                    <option class="dropdown-item" value="ambiance"><strong>Ambiance</strong></option>
+                    <option class="dropdown-item" value="chaos"><strong>Chaos</strong></option>
+                    <option class="dropdown-item" value="chrome"><strong>Chrome</strong></option>
+                    <option class="dropdown-item" value="clouds"><strong>Cloud</strong></option>
+                    <option class="dropdown-item" value="cobalt"><strong>Cobalt</strong></option>
+                    <option class="dropdown-item" value="clouds_midnight"><strong>Clouds Midnight</strong></option>
+                    <option class="dropdown-item" value="dawn"><strong>Dawn</strong></option>
+                    <option class="dropdown-item" value="dracula"><strong>Dracula</strong></option>
+                    <option class="dropdown-item" value="dreamweaver"><strong>Dreamweaver</strong></option>
+                    <option class="dropdown-item" value="eclipse"><strong>Eclipse</strong></option>
+                    <option class="dropdown-item" value="github"><strong>Github</strong></option>
+                    <option class="dropdown-item" value="monokai"><strong>Monokai</strong></option>
+                    <option class="dropdown-item" value="nord_dark"><strong>Nord Dark</strong></option>
+                    <option class="dropdown-item" value="sqlserver"><strong>SQL Server</strong></option>
+                    <option class="dropdown-item" value="solarized_light"><strong>Solarized Light</strong></option>
+                    <option class="dropdown-item" value="terminal"><strong>Terminal</strong></option>
+                    <option class="dropdown-item" value="twilight"><strong>Twilight</strong></option>
+                    <option class="dropdown-item" value="tomorrow_night_eighties"><strong>Tomorrow Night</strong>
+                    </option>
+                    <option class="dropdown-item" value="vibrant_ink"><strong>Vibrant Ink</strong></option>
+                    <option class="dropdown-item" value="xcode"><strong>XCode</strong></option>
+            </select>
         </div>
         <div class="editor__wrapper">
             <div class="editor__body">
@@ -84,8 +102,8 @@
             </div>
             <div class="editor__footer">
                 <div class="editor__footer--left">
-                    <button class="editor__btn editor__run">Run ></button>
-                    <button class="editor__btn editor__reset">Reset ></button>
+                    <button class="editor__btn editor__run"><b>Run ></b></button>
+                    <button class="editor__btn editor__reset"><b>Reset ></b></button>
                 </div>
                 <div class="editor__footer--right">
                     <div class="editor__console">

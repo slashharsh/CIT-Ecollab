@@ -8,6 +8,9 @@ let codeEditor = ace.edit("editorCode");
 let defaultCode = 'console.log("Hello World!")';
 let consoleMessages = [];
 
+// Change Theme Dynamic
+
+
 let editorLib = {
     clearConsoleScreen() {
         consoleMessages.length = 0;
@@ -31,10 +34,13 @@ let editorLib = {
         })
     },
     init() {
+        var value = document.getElementById("choose_theme");
+        getTheme = value.options[value.selectedIndex].value;
+        //console.log(getValue);
         // Configure Ace
 
         // Theme
-        codeEditor.setTheme("ace/theme/dreamweaver");
+        codeEditor.setTheme("ace/theme/" + getTheme);
 
         // Set language
         codeEditor.session.setMode("ace/mode/c_cpp");
@@ -80,3 +86,4 @@ resetCodeBtn.addEventListener('click', () => {
 })
 
 editorLib.init();
+

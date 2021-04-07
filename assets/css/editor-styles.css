@@ -36,6 +36,7 @@ html, body {
     padding: 2em;
     border-radius: 3px;
     border: 1px solid #ccc;
+    border-radius:25px;
 }
 
 .editor__body {
@@ -60,11 +61,13 @@ html, body {
 .editor__btn {
     border: 0;
     padding: .5em;
-    background-color: #fff;
+    background-color: #3f87a6;
     border: 2px solid #333;
     margin-top: 1em;
     width: 100px;
     cursor: pointer;
+    border-radius: 5px;
+
 }
 
 .editor__console {
@@ -94,7 +97,7 @@ html, body {
 }
 
 .editor__console-logs li pre {
-    font-size: .9em;
+    font-size: 20px;
     font-family: Inconsolata, sans-serif;
 }
 
