@@ -45,8 +45,7 @@ let editorLib = {
         // Configure Ace
 
         // Set language
-        codeEditor.session.setMode("ace/mode/c_cpp");
-
+        codeEditor.session.setMode("ace/mode/python")
         // Set Options
         codeEditor.setOptions({
             fontFamily: 'Inconsolata',
