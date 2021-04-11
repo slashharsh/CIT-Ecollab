@@ -62,18 +62,26 @@
     <div class="editor">
         <div class="dropdown" style="text-align: center; margin-right:55%;">
             <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button" id="choose_language">
+                data-bss-hover-animate="glow" type="button" id="choose_language"
+                onchange="editorLib.getCodeLanguage(this.value.trim())">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
                     style="width: 114px;">
                     <option class="dropdown-item" value="none"><strong>Choose Language</strong></option>
-                    <option class="dropdown-item" value="javascript"><strong>Javascript</strong></option>
-                    <option class="dropdown-item" value="python"><strong>Python</strong></option>
-                    <option class=" dropdown-item" value="java"><strong>Java</strong></option>
-                    <option class="dropdown-item" value="cpp"><strong>C++</strong></option>
+                    <option class="dropdown-item" value="46"><strong>Bash</strong></option>
+                    <option class="dropdown-item" value="50"><strong>C</strong></option>
+                    <option class="dropdown-item" value="54"><strong>C++</strong></option>
+                    <!---    <option class="dropdown-item" value="csharp"><strong>C#</strong></option>
+                    <option class="dropdown-item" value="gloang"><strong>Go</strong></option>
+                    <option class="dropdown-item" value="groovy"><strong>Groovy</strong></option>
+                    <option class="dropdown-item" value="haskell"><strong>Haskell</strong></option> -->
+                    <option class="dropdown-item" value="62"><strong>Java</strong></option>
+                    <option class="dropdown-item" value="63"><strong>JavaScript</strong></option>
+                    <option class="dropdown-item" value="68"><strong>PHP</strong></option>
+                    <option class="dropdown-item" value="71"><strong>Python</strong></option>
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button" id="choose_theme" onchange="editorLib.changeTheme()">
+                data-bss-hover-animate="glow" type="button" id="choose_theme" onchange="editorLib.getAndChangeTheme()">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
                     style="width: 114px;">
                     <option class="dropdown-item" value="github"><strong>Choose Theme</strong></option>
@@ -130,6 +138,12 @@
                 CIT</strong>
         </p>
     </footer>
+    <script>
+        function languageSelect(selectedValue) {
+            console.log(selectedValue);
+            editorLib.getCodeLanguage(selectedValue);
+        }
+    </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
