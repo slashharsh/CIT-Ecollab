@@ -1,0 +1,40 @@
+/*
+    Set Default Code Values
+        if (lang_id == Bash) {
+            defaultCode = `#include <iostream>
+                        using namespace std;
+                        int main() {
+                        cout<<"Hello World"; \n
+                        }`
+            codeEditor.setValue(defaultCode);
+        } else if (lang_id == Clang) {
+            defaultCode = `#include <stdio.h>
+                        int main() {
+                        printf("Hello World!");
+                        }`
+            codeEditor.setValue(defaultCode);
+        } else if (lang_id == Cpp) {
+            defaultCode = `#include <iostream>
+                        using namespace std;
+                        int main() {
+                        cout<<"Hello World!"; \n
+                        }`
+            codeEditor.setValue(defaultCode);
+        } else if (lang_id == Java) {
+            defaultCode = `public class Main{
+                        public static void main(String args[]){
+                        System.out.println("Hello World!");
+                        }}`
+            codeEditor.setValue(defaultCode);
+        } else if (lang_id == Javascript) {
+            defaultCode = `console.log("Hello World!")`
+            codeEditor.setValue(defaultCode);
+        } else if (lang_id == Php) {
+            defaultCode = `<?php
+                        echo "Hello World!";
+                        ?>`
+            codeEditor.setValue(defaultCode);
+        } else if (lang_id == Python) {
+            defaultCode = `print("Hello World!")`
+        }
+*/

@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="assets/css/Simple-Slider.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Team-Clean.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body style="background: #d1d1d1;">
@@ -62,11 +63,10 @@
     <div class="editor">
         <div class="dropdown" style="text-align: center; margin-right:55%;">
             <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button" id="choose_language"
-                onchange="editorLib.getCodeLanguage(this.value.trim())">
+                data-bss-hover-animate="glow" type="button" id="choose_language" onchange="editorLib.getCodeLanguage()">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
                     style="width: 114px;">
-                    <option class="dropdown-item" value="none"><strong>Choose Language</strong></option>
+                    <option class="dropdown-item" value="50"><strong>Choose Language</strong></option>
                     <option class="dropdown-item" value="46"><strong>Bash</strong></option>
                     <option class="dropdown-item" value="50"><strong>C</strong></option>
                     <option class="dropdown-item" value="54"><strong>C++</strong></option>
@@ -119,6 +119,7 @@
                 </div>
                 <div class="editor__footer--right">
                     <div class="editor__console">
+                        <pre id="ans">></pre>
                         <ul class="editor__console-logs"></ul>
                     </div>
                 </div>

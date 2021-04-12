@@ -2,13 +2,20 @@
 const consoleLogList = document.querySelector('.editor__console-logs');
 const executeCodeBtn = document.querySelector('.editor__run');
 const resetCodeBtn = document.querySelector('.editor__reset');
+const bash = "46";
+const c = "50";
+const cpp = "54";
+const java = "62";
+const javascript = "63";
+const php = "68";
+const python = "71";
+const BASE_URL = "http://40.80.89.241:2358/submissions";
 
 // Setup Ace
 let codeEditor = ace.edit("editorCode");
-let defaultCode = 'console.log("Hello World!")';
+let defaultCode = "// Start writing your Code! \n// Default language is C";
 let consoleMessages = [];
-lang_id = "";
-
+var lang_id = "";
 
 let editorLib = {
 
@@ -20,21 +27,6 @@ let editorLib = {
         while (consoleLogList.firstChild) {
             consoleLogList.removeChild(consoleLogList.firstChild);
         }
-    },
-
-    //print to Console
-    printToConsole() {
-        consoleMessages.forEach(log => {
-            const newLogItem = document.createElement('li');
-            const newLogText = document.createElement('pre');
-
-            newLogText.className = log.class;
-            newLogText.textContent = `> ${log.message}`;
-
-            newLogItem.appendChild(newLogText);
-
-            consoleLogList.appendChild(newLogItem);
-        })
     },
 
     // Change Theme Dynamic
@@ -50,12 +42,12 @@ let editorLib = {
     getCodeLanguage() {
         var language = document.getElementById("choose_language");
         language_id = language.options[language.selectedIndex].value;
-        //console.log("Languge ID: " + getLanguage);
+        console.log("Languge ID: " + language_id);
         lang_id = language_id;
     },
 
-    //
-    changeLanguage(lang_id, userCode) {
+    // Post Request Data to Run Code
+    codeRun(lang_id, userCode) {
         //console.log("Language Selected is: " + lang_id);
         let post_data = {
             source_code: userCode,
@@ -74,15 +66,37 @@ let editorLib = {
             max_file_size: "1024",
         };
         //console.log(post_data);
+        let request = $.ajax({
+            url: BASE_URL,
+            type: "post",
+            data: post_data
+        });
+        const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+        // Callback handler that will be called on success
+        request.done(async function (response, textStatus, jqXHR) {
+            // Log a message to the console
+            //console.log("Hooray, it worked!");
+            let token = response.token;
+            await new Promise((resolve) => setTimeout(resolve, 3000)); // 3 sec
+            //console.log(3, "after 3 seconds");
+            let second_request = $.ajax({
+                url: BASE_URL + "/" + token,
+                type: "get",
+            });
+            second_request.done(function (response) {
+                if (response.stdout != null) {
+                    //console.log(response.stdout);
+                    $("#ans").html(response.stdout);
+                } else {
+                    //console.log(response.stderr);
+                    $("#ans").html(response.stderr);
+                }
+                //console.log(response.stdout, response.stderr);
+            });
+        });
     },
-
     // Initialization
     init() {
-
-        // Configure Ace
-
-        // Set language
-        codeEditor.session.setMode("ace/mode/python")
         // Set Options
         codeEditor.setOptions({
             fontFamily: 'Inconsolata',
@@ -90,12 +104,12 @@ let editorLib = {
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
         });
-
-        // Set Default Code
-        codeEditor.setValue(defaultCode);
+        codeEditor.setValue(defaultCode)
     }
-
 }
+editorLib.init();
+
+
 // Events
 executeCodeBtn.addEventListener('click', () => {
     // Clear console messages
@@ -105,12 +119,8 @@ executeCodeBtn.addEventListener('click', () => {
     const userCode = codeEditor.getValue();
 
     // Run the user code
-    //console.log("Jai Ho: " + lang_id);
-    editorLib.changeLanguage(lang_id, userCode);
-    //editorLib.changeLanguage(getLanguage);
+    editorLib.codeRun(lang_id, userCode);
 
-    // Print to the console
-    editorLib.printToConsole();
 });
 
 resetCodeBtn.addEventListener('click', () => {
@@ -120,6 +130,3 @@ resetCodeBtn.addEventListener('click', () => {
     // Clear console messages
     editorLib.clearConsoleScreen();
 })
-
-editorLib.init();
-
