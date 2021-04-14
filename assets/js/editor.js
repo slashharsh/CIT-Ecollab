@@ -13,7 +13,7 @@ const BASE_URL = "http://40.80.89.241:2358/submissions";
 
 // Setup Ace
 let codeEditor = ace.edit("editorCode");
-let defaultCode = "// Start writing your Code! \n// Default language is C";
+let defaultCode = "";
 let consoleMessages = [];
 var lang_id = "";
 
@@ -42,8 +42,51 @@ let editorLib = {
     getCodeLanguage() {
         var language = document.getElementById("choose_language");
         language_id = language.options[language.selectedIndex].value;
-        console.log("Languge ID: " + language_id);
+        //console.log("Languge ID: " + language_id);
         lang_id = language_id;
+        switch (language_id) {
+            case "46":
+                defaultCode = `echo "Hello World!" `
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/sh")
+                break;
+            case "50":
+                defaultCode = `#include <stdio.h>\nint main()\n{\n   printf("Hello World!");\n}`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/c_cpp")
+                break;
+            case "54":
+                defaultCode = `#include <iostream>\nusing namespace std;\nint main()\n {\n  cout<<"Hello World!"; \n}`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/c_cpp")
+                break;
+            case "62":
+                defaultCode = `public class Main{\npublic static void main(String args[])\n{\n  System.out.println("Hello World!");\n }\n}`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/java")
+                break;
+            case "63":
+                defaultCode = `console.log("Hello World!");`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/javascript")
+                break;
+            case "68":
+                defaultCode = `<?php\n echo "Hello World!";\n?>`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/php")
+                break;
+            case "71":
+                defaultCode = `print("Hello World!")`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/python")
+                break;
+            default:
+                defaultCode = `#include <stdio.h>\nint main()\n{\n  printf("Hello World!");\n}`
+                codeEditor.setValue(defaultCode);
+                codeEditor.session.setMode("ace/mode/c_cpp")
+
+        }
+
     },
 
     // Post Request Data to Run Code
@@ -86,10 +129,10 @@ let editorLib = {
             second_request.done(function (response) {
                 if (response.stdout != null) {
                     //console.log(response.stdout);
-                    $("#ans").html(response.stdout);
+                    $("#ans").html("> " + response.stdout);
                 } else {
                     //console.log(response.stderr);
-                    $("#ans").html(response.stderr);
+                    $("#ans").html("> " + response.stderr);
                 }
                 //console.log(response.stdout, response.stderr);
             });
@@ -97,14 +140,18 @@ let editorLib = {
     },
     // Initialization
     init() {
+        codeEditor.session.setMode("ace/mode/javascript");
+        defaultCode = `// Select a Language \n// Start writing your Code here!`
+        codeEditor.setValue(defaultCode);
+        codeEditor.session.setMode("ace/mode/c_cpp");
         // Set Options
+        codeEditor.session.setMode("ace/mode/javascript");
         codeEditor.setOptions({
             fontFamily: 'Inconsolata',
-            fontSize: '15pt',
+            fontSize: '17pt',
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
         });
-        codeEditor.setValue(defaultCode)
     }
 }
 editorLib.init();

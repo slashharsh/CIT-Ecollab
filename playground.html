@@ -61,7 +61,7 @@
 
 
     <div class="editor">
-        <div class="dropdown" style="text-align: center; margin-right:55%;">
+        <div class="dropdown" style="text-align: center; margin-left:43%;">
             <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
                 data-bss-hover-animate="glow" type="button" id="choose_language" onchange="editorLib.getCodeLanguage()">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
@@ -81,7 +81,7 @@
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button" id="choose_theme" onchange="editorLib.getAndChangeTheme()">
+                data-bss-hover-animate="glow" type="button" id="choose_theme" onchange="editorLib.getAndChangeTheme();">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
                     style="width: 114px;">
                     <option class="dropdown-item" value="github"><strong>Choose Theme</strong></option>
@@ -106,6 +106,16 @@
                     </option>
                     <option class="dropdown-item" value="vibrant_ink"><strong>Vibrant Ink</strong></option>
                     <option class="dropdown-item" value="xcode"><strong>XCode</strong></option>
+            </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
+                data-bss-hover-animate="glow" type="button" id="console_theme"
+                onchange="editorLib.getAndChangeTheme();">
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
+                    style="width: 114px;">
+                    <option class="dropdown-item" value="#0f0f0f"><strong>Console Theme</strong></option>
+                    <option class="dropdown-item" value="#ccc"><strong>Light</strong></option>
+                    <option class="dropdown-item" value="#0f0f0f"><strong>Dark</strong></option>
             </select>
         </div>
         <div class="editor__wrapper">
@@ -139,12 +149,6 @@
                 CIT</strong>
         </p>
     </footer>
-    <script>
-        function languageSelect(selectedValue) {
-            console.log(selectedValue);
-            editorLib.getCodeLanguage(selectedValue);
-        }
-    </script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
@@ -153,8 +157,7 @@
     <!-- Required Ace Libraries -->
     <script src="assets/js/ace-editor/src-noconflict/ace.js"></script>
     <script src="assets/js/ace-editor/src-noconflict/mode-javascript.js"></script>
-    <script src="assets/js/ace-editor/src-noconflict/mode-python.js"></script>
-    <script src="assets/js/ace-editor/src-noconflict/mode-c_cpp.js"></script>
+    <script src="assets/js/ace-editor/src-noconflict/ext-spellcheck.js"></script>
     <script src="assets/js/ace-editor/src-noconflict/ext-language_tools.js"></script>
     <!-- Custom Scripts -->
     <script src="assets/js/editor.js"></script>
