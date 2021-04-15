@@ -84,7 +84,7 @@
                 data-bss-hover-animate="glow" type="button" id="choose_theme" onchange="editorLib.getAndChangeTheme();">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
                     style="width: 114px;">
-                    <option class="dropdown-item" value="github"><strong>Choose Theme</strong></option>
+                    <option class="dropdown-item" value="github"><strong>Editor Theme</strong></option>
                     <option class="dropdown-item" value="ambiance"><strong>Ambiance</strong></option>
                     <option class="dropdown-item" value="chaos"><strong>Chaos</strong></option>
                     <option class="dropdown-item" value="chrome"><strong>Chrome</strong></option>
@@ -109,12 +109,11 @@
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <select class="btn btn-primary dropdown-toggle text-center" aria-expanded="false" data-bs-toggle="dropdown"
-                data-bss-hover-animate="glow" type="button" id="console_theme"
-                onchange="editorLib.getAndChangeTheme();">
+                data-bss-hover-animate="glow" type="button" id="console_theme" onchange="consoleTheme();">
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark text-nowrap text-center"
                     style="width: 114px;">
-                    <option class="dropdown-item" value="#0f0f0f"><strong>Console Theme</strong></option>
-                    <option class="dropdown-item" value="#ccc"><strong>Light</strong></option>
+                    <option class="dropdown-item" value="none"><strong>Console Theme</strong></option>
+                    <option class="dropdown-item" value="#fff"><strong>Light</strong></option>
                     <option class="dropdown-item" value="#0f0f0f"><strong>Dark</strong></option>
             </select>
         </div>
@@ -128,7 +127,7 @@
                     <button class="editor__btn editor__reset"><b>Reset ></b></button>
                 </div>
                 <div class="editor__footer--right">
-                    <div class="editor__console">
+                    <div class="editor__console" id="console">
                         <pre id="ans">></pre>
                         <ul class="editor__console-logs"></ul>
                     </div>
@@ -153,7 +152,12 @@
     <script src="assets/js/bs-init.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
     <script src="assets/js/Simple-Slider.js"></script>
-
+    <script>
+        function consoleTheme() {
+            consoleHex = document.getElementById("console_theme").value;
+            document.getElementById("console").style.backgroundColor = consoleHex;
+        }
+    </script>
     <!-- Required Ace Libraries -->
     <script src="assets/js/ace-editor/src-noconflict/ace.js"></script>
     <script src="assets/js/ace-editor/src-noconflict/mode-javascript.js"></script>
