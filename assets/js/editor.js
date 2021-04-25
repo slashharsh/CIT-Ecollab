@@ -42,7 +42,7 @@ let editorLib = {
     getCodeLanguage() {
         var language = document.getElementById("choose_language");
         language_id = language.options[language.selectedIndex].value;
-        //console.log("Languge ID: " + language_id);
+        console.log("Languge ID: " + language_id);
         lang_id = language_id;
         switch (language_id) {
             case "46":
@@ -128,10 +128,10 @@ let editorLib = {
             });
             second_request.done(function (response) {
                 if (response.stdout != null) {
-                    //console.log(response.stdout);
+                    //console.log("Output : ",response.stdout);
                     $("#ans").html("> " + response.stdout);
                 } else {
-                    //console.log(response.stderr);
+                    //console.log("Error : ",response.stderr);
                     $("#ans").html("> " + response.stderr);
                 }
                 //console.log(response.stdout, response.stderr);
