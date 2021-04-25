@@ -13,6 +13,7 @@ const BASE_URL = "http://40.80.89.241:2358/submissions";
 
 // Setup Ace
 let codeEditor = ace.edit("editorCode");
+let stdinEditor = ace.edit("editorStdin")
 let defaultCode = "";
 let consoleMessages = [];
 var lang_id = "";
@@ -90,13 +91,13 @@ let editorLib = {
     },
 
     // Post Request Data to Run Code
-    codeRun(lang_id, userCode) {
+    codeRun(lang_id, userCode,stdinInput) {
         //console.log("Language Selected is: " + lang_id);
         let post_data = {
             source_code: userCode,
             language_id: lang_id,
             number_of_runs: "1",
-            stdin: "Judge0",
+            stdin: stdinInput,
             expected_output: null,
             cpu_time_limit: "2",
             cpu_extra_time: "0.5",
@@ -140,17 +141,19 @@ let editorLib = {
     },
     // Initialization
     init() {
+        stdinEditor.session.setMode("ace/mode/text");
         codeEditor.session.setMode("ace/mode/javascript");
-        defaultCode = `// Select a Language \n// Start writing your Code here!`
+        defaultCode = `// Select a Language \n// Start writing your Code here! \n//Note: For entering Input use --> 'STD. INPUT'`
         codeEditor.setValue(defaultCode);
-        codeEditor.session.setMode("ace/mode/c_cpp");
-        // Set Options
-        codeEditor.session.setMode("ace/mode/javascript");
         codeEditor.setOptions({
             fontFamily: 'Inconsolata',
             fontSize: '17pt',
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
+        });
+        stdinEditor.setOptions({
+            fontFamily: 'Inconsolata',
+            fontSize: '17pt',
         });
     }
 }
@@ -164,9 +167,11 @@ executeCodeBtn.addEventListener('click', () => {
 
     // Get input from the code editor
     const userCode = codeEditor.getValue();
+    // Get input from the stdin editor
+    const stdinInput=stdinEditor.getValue();
 
     // Run the user code
-    editorLib.codeRun(lang_id, userCode);
+    editorLib.codeRun(lang_id, userCode,stdinInput);
 
 });
 
