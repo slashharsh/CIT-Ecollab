@@ -91,7 +91,7 @@ let editorLib = {
     },
 
     // Post Request Data to Run Code
-    codeRun(lang_id, userCode,stdinInput) {
+    codeRun(lang_id, userCode, stdinInput) {
         //console.log("Language Selected is: " + lang_id);
         let post_data = {
             source_code: userCode,
@@ -130,10 +130,10 @@ let editorLib = {
             second_request.done(function (response) {
                 if (response.stdout != null) {
                     //console.log("Output : ",response.stdout);
-                    $("#ans").html("> " + response.stdout);
+                    $("#ans").html("> Output:\n" + response.stdout);
                 } else {
                     //console.log("Error : ",response.stderr);
-                    $("#ans").html("> " + response.stderr);
+                    $("#ans").html("> Output:\n" + response.stderr);
                 }
                 //console.log(response.stdout, response.stderr);
             });
@@ -168,10 +168,10 @@ executeCodeBtn.addEventListener('click', () => {
     // Get input from the code editor
     const userCode = codeEditor.getValue();
     // Get input from the stdin editor
-    const stdinInput=stdinEditor.getValue();
+    const stdinInput = stdinEditor.getValue();
 
     // Run the user code
-    editorLib.codeRun(lang_id, userCode,stdinInput);
+    editorLib.codeRun(lang_id, userCode, stdinInput);
 
 });
 
